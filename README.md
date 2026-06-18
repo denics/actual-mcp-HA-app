@@ -19,7 +19,7 @@ This add-on runs the Actual Budget MCP server inside Home Assistant, exposing yo
 1. Open Home Assistant
 2. Go to **Settings** → **Add-ons** → **Add-on Store**
 3. Click the **⋮** menu (top-right) → **Repositories**
-4. Add this repository URL: `https://github.com/YOUR_USERNAME/actual-mcp-HA-app`
+4. Add this repository URL: `https://github.com/denics/actual-mcp-HA-app`
 5. Click **Add** → **Close**
 
 ### 2. Install Add-on
@@ -96,6 +96,12 @@ Budget cache and session data is stored in `/share/actual-mcp` within Home Assis
 ### Port conflict
 - Change the port mapping in the add-on **Configuration** tab
 - Update the MCP integration URL accordingly
+
+## Maintainer
+
+**Denics** - [github.ue37e@passmail.net](mailto:github.ue37e@passmail.net)
+
+Repository: [Actual Budget MCP Server Add-on Repository](https://github.com/denics/actual-mcp-HA-app)
 
 ## License
 
