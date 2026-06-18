@@ -1,0 +1,33 @@
+name: Actual Budget MCP Server
+version: "1.11.3"
+slug: actual_mcp
+description: MCP server for Actual Budget - exposes financial data to AI assistants via SSE/HTTP
+url: https://github.com/s-stefanov/actual-mcp
+image: sstefanov/actual-mcp
+arch:
+  - aarch64
+  - amd64
+  - armv7
+init: false
+homeassistant: "2025.1.0"
+panel_icon: mdi:finance
+ports:
+  3000/tcp: 3000
+ports_description:
+  3000/tcp: MCP Server SSE/HTTP port
+options:
+  actual_server_url: ""
+  actual_password: ""
+  actual_budget_sync_id: ""
+  bearer_token: ""
+  enable_write: false
+  log_level: info
+schema:
+  actual_server_url: str
+  actual_password: password
+  actual_budget_sync_id: str?
+  bearer_token: password
+  enable_write: bool
+  log_level: "list(info|debug|warning|error)"
+map:
+  - share:rw

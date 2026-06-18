@@ -1,0 +1,27 @@
+configuration:
+  actual_server_url:
+    name: Actual Server URL
+    description: >-
+      URL of your Actual Budget server (e.g., http://actualbudget:5006).
+      Leave empty if using local data directory.
+  actual_password:
+    name: Actual Password
+    description: >-
+      Password for your Actual Budget server.
+  actual_budget_sync_id:
+    name: Budget Sync ID
+    description: >-
+      Specific budget ID to use. Leave empty for default.
+  bearer_token:
+    name: Bearer Token
+    description: >-
+      Secret token for authenticating MCP requests. Required for secure access.
+  enable_write:
+    name: Enable Write Tools
+    description: >-
+      Allow tools that modify data (create/update/delete transactions, categories, etc.).
+  log_level:
+    name: Log Level
+    description: Verbosity of add-on logs.
+network:
+  3000/tcp: "MCP Server port (SSE/HTTP)"
