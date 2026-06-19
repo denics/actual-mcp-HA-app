@@ -21,7 +21,7 @@ fi
 ACTUAL_SERVER_URL_VAL="$(bashio::config 'actual_server_url')"
 if [ -n "$ACTUAL_SERVER_URL_VAL" ]; then
   export ACTUAL_SERVER_URL="$ACTUAL_SERVER_URL_VAL"
-  bashio::log.info "Actual server URL configured"
+  bashio::log.info "Actual server URL configured: $ACTUAL_SERVER_URL"
 else
   bashio::log.warning "ACTUAL_SERVER_URL not set - using local data directory"
 fi
@@ -31,6 +31,7 @@ if [ -z "$ACTUAL_PASSWORD" ]; then
   bashio::log.error "ACTUAL_PASSWORD is required when using a remote server"
   exit 1
 fi
+bashio::log.info "ACTUAL_PASSWORD is set"
 
 SYNC_ID="$(bashio::config 'actual_budget_sync_id')"
 if [ -n "$SYNC_ID" ]; then
@@ -40,6 +41,7 @@ fi
 
 export ACTUAL_DATA_DIR="/share/actual-mcp"
 mkdir -p "$ACTUAL_DATA_DIR"
+bashio::log.info "ACTUAL_DATA_DIR set to: $ACTUAL_DATA_DIR"
 
 bashio::log.info "Starting Actual Budget MCP Server on port 3000..."
 bashio::log.info "SSE endpoint: http://<ha-host>:3000/sse"
