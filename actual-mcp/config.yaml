@@ -4,6 +4,7 @@ slug: actual_mcp
 description: MCP server for Actual Budget - exposes financial data to AI assistants via SSE/HTTP
 url: https://github.com/s-stefanov/actual-mcp
 image: sstefanov/actual-mcp
+build: true
 arch:
   - aarch64
   - amd64

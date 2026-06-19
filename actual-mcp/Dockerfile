@@ -1,5 +1,5 @@
 ARG BUILD_FROM
-FROM sstefanov/actual-mcp:latest
+FROM $BUILD_FROM
 
 RUN apk add --no-cache bashio
 
