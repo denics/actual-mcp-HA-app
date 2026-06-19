@@ -43,8 +43,17 @@ export ACTUAL_DATA_DIR="/share/actual-mcp"
 mkdir -p "$ACTUAL_DATA_DIR"
 bashio::log.info "ACTUAL_DATA_DIR set to: $ACTUAL_DATA_DIR"
 
-bashio::log.info "Starting Actual Budget MCP Server on port 3000..."
-bashio::log.info "SSE endpoint: http://<ha-host>:3000/sse"
-bashio::log.info "Streamable HTTP endpoint: http://<ha-host>:3000/mcp"
+bashio::log.info "Testing Actual Budget API connectivity first..."
+node build/index.js --test-resources
+API_TEST_RESULT=$?
+
+if [ $API_TEST_RESULT -ne 0 ]; then
+  bashio::log.error "Failed to connect to Actual Budget API. Check server URL and password."
+  bashio::log.error "ACTUAL_SERVER_URL=$ACTUAL_SERVER_URL"
+  bashio::log.error "Will not start MCP server."
+  exit 1
+fi
+
+bashio::log.info "Actual Budget API connectivity OK - starting MCP server on port 3000..."
 
 exec node build/index.js $ARGS
