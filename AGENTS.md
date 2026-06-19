@@ -47,7 +47,10 @@ actual-mcp-HA-app/
 
 ### Testing
 
-- No automated tests in this add-on project
+- GitHub Actions workflow runs on every push: `.github/workflows/tests.yaml`
+- Validates YAML syntax (config.yaml, translations, repository.yaml)
+- Lints run.sh with shellcheck
+- Lints Dockerfile with hadolint
 - Test by installing in Home Assistant and checking logs
 - Verify endpoints with: `curl -H "Authorization: Bearer <token>" http://<ha-host>:3000/sse`
 

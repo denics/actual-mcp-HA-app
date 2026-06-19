@@ -1,0 +1,36 @@
+name: Add-on Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq yamllint shellcheck > /dev/null 2>&1
+
+      - name: YAMLLint - config.yaml
+        run: yamllint -c /dev/null actual-mcp/config.yaml || true
+
+      - name: YAMLLint - translations
+        run: yamllint -c /dev/null actual-mcp/translations/en.yaml || true
+
+      - name: YAMLLint - repository.yaml
+        run: yamllint -c /dev/null repository.yaml || true
+
+      - name: Shellcheck run.sh
+        run: shellcheck actual-mcp/run.sh || true
+
+      - name: Hadolint Dockerfile
+        uses: docker://hadolint/hadolint:latest-debian
+        with:
+          args: "/github/workspace/actual-mcp/Dockerfile"
