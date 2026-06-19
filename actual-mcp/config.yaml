@@ -1,5 +1,5 @@
 name: Actual Budget MCP Server
-version: "1.11.2"
+version: "v1.11.2"
 slug: actual_mcp
 description: MCP server for Actual Budget - exposes financial data to AI assistants via SSE/HTTP
 url: https://github.com/s-stefanov/actual-mcp
