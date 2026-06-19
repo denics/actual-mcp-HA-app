@@ -1,5 +1,5 @@
 name: Actual Budget MCP Server
-version: "1.11.3"
+version: "1.11.2"
 slug: actual_mcp
 description: MCP server for Actual Budget - exposes financial data to AI assistants via SSE/HTTP
 url: https://github.com/s-stefanov/actual-mcp
@@ -7,7 +7,6 @@ image: sstefanov/actual-mcp
 arch:
   - aarch64
   - amd64
-  - armv7
 init: false
 homeassistant: "2025.1.0"
 panel_icon: mdi:finance
